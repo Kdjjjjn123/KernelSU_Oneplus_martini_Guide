@@ -46,7 +46,11 @@ on:
           default: true
           type: boolean
         KERNELSU_TAG:
-          description: 'Choose KernelSU branch or tag
+          description: 'Choose KernelSU branch or tag'
+          required: false
+          default: 
+          type: string
+
 jobs:
 
   build:
