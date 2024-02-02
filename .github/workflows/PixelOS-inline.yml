@@ -148,7 +148,7 @@ jobs:
           fi
 
       - name: Upload Artifact
-        if: github.event.inputs.RELEASE_CONFIG == 'false'
+        if: github.event.inputs.RELEASE_CONFIG == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: PixelOS-Inline-martini-${{ env.TAG_NAME }}
