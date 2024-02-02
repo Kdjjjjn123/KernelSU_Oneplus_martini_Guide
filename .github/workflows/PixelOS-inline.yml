@@ -48,7 +48,7 @@ on:
         KERNELSU_TAG:
           description: 'Choose KernelSU branch or tag'
           required: false
-          default: bash
+          default: 
           type: string
 
 jobs:
