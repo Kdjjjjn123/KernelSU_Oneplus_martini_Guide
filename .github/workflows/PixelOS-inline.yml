@@ -46,11 +46,7 @@ on:
           default: true
           type: boolean
         KERNELSU_TAG:
-          description: 'Choose KernelSU branch or tag'
-          required: false
-          default: 
-          type: string
-
+          description: 'Choose KernelSU branch or tag
 jobs:
 
   build:
@@ -103,7 +99,7 @@ jobs:
         if: github.event.inputs.KERNELSU_CONFIG == 'true'
         run: |
           cd $GITHUB_WORKSPACE/kernel
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash - "${{ github.event.inputs.KERNELSU_TAG }}"
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash - 
           grep -q "CONFIG_MODULES=y" "arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}" || echo "CONFIG_MODULES=y" >> "arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}"
           grep -q "CONFIG_KPROBES=y" "arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}" || echo "CONFIG_KPROBES=y" >> "arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}"
           grep -q "CONFIG_HAVE_KPROBES=y" "arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}" || echo "CONFIG_HAVE_KPROBES=y" >> "arch/arm64/configs/${{ github.event.inputs.KERNEL_DEFCONFIG }}"
